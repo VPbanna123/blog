@@ -1,6 +1,6 @@
 import conf from "../conf/conf.js";
-import { Client, Account, ID } from "appwrite"
-
+import { Client, Account } from "appwrite"
+import { ID } from "appwrite";
 export class AuthService {
     client = new Client();
     account;
@@ -27,7 +27,7 @@ export class AuthService {
                 // console.log("User logged in:", session);
                 // return session;
             } else {
-                return userAccount;
+                return null;
             }
 
         } catch (error) {
@@ -38,7 +38,7 @@ export class AuthService {
 
     async login({ email, password }) {
         try {
-            const session= await this.account.createSession(email, password)
+            const session= await this.account.createEmailSession(email, password)
             // const user=await this.account.get();
             // if(!user.emailVerification)
             // {
