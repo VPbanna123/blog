@@ -21,8 +21,8 @@ const create=async(data)=>{
         const userData=await authService.createAccount(data)
         console.log("User data after signup:", userData);
         if(userData){
-            const currentUser =await authService.getCurrentUser()
-            if(currentUser ) dispatch(login(currentUser ))
+            const userData=await authService.getCurrentUser()
+            if(userData) dispatch(login(userData))
 navigate("/")
             }
     } catch (error) {
@@ -52,8 +52,7 @@ navigate("/")
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
         <form  onSubmit= {
-   
-    handleSubmit(create)()
+    handleSubmit(create)
 }>
             <div className='space-y-5'>
                 <Input

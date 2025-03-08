@@ -19,10 +19,10 @@ export class AuthService {
             const userAccount = await this.account.create(ID.unique(), email, password, name)
             console.log("User created:", userAccount);
             if (userAccount) {
-                await this.account.createVerification();
-                return { success: true, message: "Account created! Please verify your email." };
+                // await this.account.createVerification();
+                // return { success: true, message: "Account created! Please verify your email." };
         
-                // return this.login({email,password});
+                return this.login({email,password});
                 // const session = await this.login({ email, password });
                 // console.log("User logged in:", session);
                 // return session;
@@ -39,12 +39,12 @@ export class AuthService {
     async login({ email, password }) {
         try {
             const session= await this.account.createSession(email, password)
-            const user=await this.account.get();
-            if(!user.emailVerification)
-            {
-                throw new Error("please verify your email before logging in")
+            // const user=await this.account.get();
+            // if(!user.emailVerification)
+            // {
+            //     throw new Error("please verify your email before logging in")
             
-            }
+            // }
             return session;
         } catch (error) {
             throw error
@@ -67,17 +67,17 @@ export class AuthService {
             throw error
         }
     }
-    async resendVerification(){
-        try {
-            await this.account.createVerification();
-            console.log("verification email is resent")
-            return { success: true, message: "Verification email resent. Check your inbox." };
+    // async resendVerification(){
+    //     try {
+    //         await this.account.createVerification();
+    //         console.log("verification email is resent")
+    //         return { success: true, message: "Verification email resent. Check your inbox." };
  
-        } catch (error) {
-            console.error("Error resending verification email:", error);
-            throw error;
-        }
-    }
+    //     } catch (error) {
+    //         console.error("Error resending verification email:", error);
+    //         throw error;
+    //     }
+    // }
 
 }
 

@@ -12,7 +12,7 @@ function Login() {
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
-    const [showResendButton, setShowResendButton] = useState(false);
+    // const [showResendButton, setShowResendButton] = useState(false);
     const login = async (data) => {
         setError("")
         setShowResendButton(false); 
@@ -25,25 +25,25 @@ function Login() {
             }
         } catch (error) {
             setError(error.message)
-            if (error.message.toLowerCase().includes("email not verified")) {
-                setShowResendButton(true); // Show the resend button only if the email is not verified
-            }
+            // if (error.message.toLowerCase().includes("email not verified")) {
+            //     setShowResendButton(true); // Show the resend button only if the email is not verified
+            // }
         }
     }
-    const handleResendVerification = async () => {
-        const email = getValues("email"); // Get the email from the input field
-        if (!email) {
-            setError("Please enter your email before resending verification.");
-            return;
-        }
+    // const handleResendVerification = async () => {
+    //     const email = getValues("email"); // Get the email from the input field
+    //     if (!email) {
+    //         setError("Please enter your email before resending verification.");
+    //         return;
+    //     }
     
-        try {
-            const response = await authService.resendVerification(email);
-            setError(response.message); // Show success message
-        } catch (error) {
-            setError("Failed to resend verification email. Try again later.");
-        }
-    };
+    //     try {
+    //         const response = await authService.resendVerification(email);
+    //         setError(response.message); // Show success message
+    //     } catch (error) {
+    //         setError("Failed to resend verification email. Try again later.");
+    //     }
+    // };
     return (
         <div
     className='flex items-center justify-center w-full'
@@ -91,7 +91,7 @@ function Login() {
                 type="submit"
                 className="w-full"
                 >Sign in</Button>
-                {showResendButton && (
+                {/* {showResendButton && (
     <Button
         type="button"
         onClick={handleResendVerification}
@@ -99,7 +99,7 @@ function Login() {
     >
         Resend Verification Email
     </Button>
-)}
+)} */}
             </div>
         </form>
         </div>
