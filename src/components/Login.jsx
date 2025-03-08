@@ -15,7 +15,8 @@ function Login() {
     // const [showResendButton, setShowResendButton] = useState(false);
     const login = async (data) => {
         setError("")
-        setShowResendButton(false); 
+        // setShowResendButton(false); 
+        
         try {
             const session = await authService.login(data)
             if (session) {
