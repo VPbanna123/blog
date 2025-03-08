@@ -30,19 +30,7 @@ return !loading?(<div className="min-h-screen flex flex-col">
    
 {/* Fixed Header */}
 <Header className="fixed top-0 left-0 w-full" />
-<div className="absolute top-0 left-0 w-full h-full">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        poster="/fallback.jpg"
-      >
-        <source src="/bg.mp4" type="video/mp4" />
-        <img src="/bg.jpg" alt="Background" className="w-full h-full object-cover" />
-      </video>
-    </div>
+
 {/* Main Content - Centered */}
 <main className="flex-2 flex items-center justify-center text-center px-4 py-20">
  
