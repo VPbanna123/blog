@@ -15,7 +15,7 @@ function Post() {
     const { slug } = useParams();
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData);
-
+       console.log("in post file ",userData)
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
 

@@ -37,12 +37,14 @@ const navItems=[
 ]
 
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    // <header className='fixed top-0 left-0 w-full z-50 py-3 shadow '>
+    <header className="fixed top-0 left-0 w-full z-50 py-2 h-14 shadow bg-gradient-to-r from-black to-gray-700 hover:from-gray-700 hover:to-black transition-all duration-500 text-white font-bold">
+
     <Container>
       <nav className='flex'>
         <div className='mr-4'>
           <Link to='/'>
-            <Logo width='70px'   />
+            <Logo width='50px'   />
 
             </Link>
         </div>
