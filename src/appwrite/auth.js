@@ -1,4 +1,5 @@
 import conf from "../conf/conf.js";
+console.log("Appwrite Config in AuthService:", conf);
 import { Client, Account } from "appwrite"
 import { ID } from "appwrite";
 export class AuthService {
@@ -38,13 +39,14 @@ export class AuthService {
 
     async login({ email, password }) {
         try {
-            const session= await this.account.createEmailSession(email, password)
+            const session= await this.account.createEmailPasswordSession(email, password)
             // const user=await this.account.get();
             // if(!user.emailVerification)
             // {
             //     throw new Error("please verify your email before logging in")
             
             // }
+            console.log("Session created:", session);
             return session;
         } catch (error) {
             throw error
@@ -53,7 +55,10 @@ export class AuthService {
 
     async getCurrentUser() {
         try {
-            return await this.account.get();
+            // return await this.account.get();
+        //     const session = await this.account.getSession();  // Ensure session exists
+        // console.log("Active session:", session);
+        return await this.account.get();
         } catch (error) {
             console.log("appwrite error ::getcurrentuser", error)
             return null;

@@ -1,4 +1,5 @@
 import conf from "../conf/conf.js";
+console.log("Appwrite Config in AuthService:", conf);
 import {Client,Databases,Storage ,Query} from "appwrite"
 import { ID } from "appwrite";
 // import * as Appwrite from "appwrite";
@@ -25,7 +26,7 @@ try {
         {
            title,
            content,
-           featuredImage,
+         featuredImage, 
            status,
            userId 
         }
