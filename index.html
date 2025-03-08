@@ -8,16 +8,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <video autoplay loop muted playsinline id="video-background" poster="/fallback.jpg" onerror="hideVideo()">
-      <source src="/bg.mp4" type="video/mp4">
-    </video>
-    
-    <script>
-      function hideVideo() {
-        document.getElementById("video-background").classList.add("video-hidden");
-        console.error("Video failed to load. Fallback image is applied.");
-      }
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
